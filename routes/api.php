@@ -18,11 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::post("/register-user",[UserController::class , 'registerUser']);
 Route::post("/login",[UserController::class , 'login']);
+Route::post("/logout",[UserController::class , 'logout']);
+
 
 // Route::middleware('auth:sanctum')->post("/create-payment",[RazorpayController::class, 'createPayment']);
 
-Route::group(['middleware' => 'checkRole:super_admin', 'prefix' => 'user' ], function() {
+Route::group(['middleware' => 'checkRole:super_admin', 'prefix' => 'admin' ], function() {
     Route::middleware('auth:sanctum')->get("/list",[RazorpayController::class, 'listPayment']);
+    Route::middleware('auth:sanctum')->get("/user-list",[UserController::class, 'userDetails']);
 
 });
 
