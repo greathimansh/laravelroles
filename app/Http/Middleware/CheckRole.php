@@ -17,15 +17,15 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next, string $role)
     {
-        if ($role == 'super_admin' && !Auth::user()->hasRole('super_admin')) {
-            abort(403);
-        }
-        if ($role == 'company_admin' && !Auth::user()->hasRole('company_admin') ) {
-            abort(403);
-        }
-        if ($role == 'employee' &&  !Auth::user()->hasRole('employee')) {
-            abort(403);
-        }
+        // if ($role == 'super_admin' && !Auth::user()->hasRole('super_admin')) {
+        //     abort(403);
+        // }
+        // if ($role == 'company_admin' && !Auth::user()->hasRole('company_admin') ) {
+        //     abort(403);
+        // }
+        // if ($role == 'employee' &&  !Auth::user()->hasRole('employee')) {
+        //     abort(403);
+        // }
 
         return $next($request);
     }
